@@ -23,7 +23,7 @@ func main() {
 
 	for _, url := range urls {
 		wg.Add(1)
-		fetch(url, &wg, ch)
+		go fetch(url, &wg, ch)
 	}
 	wg.Wait()
 	for i := range ch {
